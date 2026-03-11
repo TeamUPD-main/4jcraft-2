@@ -1,4 +1,4 @@
-name: Build Linux Release
+name: Build Linux Release p3
 
 on:
   push:
