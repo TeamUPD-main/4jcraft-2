@@ -89,6 +89,7 @@ static void RADLINK WarningCallback(void *user_callback_data, Iggy *player, Iggy
 		use for debugging, otherwise debugging errors in the
 		ActionScript 3 code in your Flash content will be very
 		difficult! */
+		app.DebugPrintf(app.USER_SR, "[Iggy] ");
 		app.DebugPrintf(app.USER_SR, message);
 		app.DebugPrintf(app.USER_SR, "\n");
 		break;
