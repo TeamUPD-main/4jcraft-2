@@ -34,15 +34,16 @@ enum IggyAudioOutParamFormat {
     Float_8CH_Std = 7
 };
 
-typedef union {
+typedef union IggyAudioOutParamExtendedInformation {
+    unsigned raw;
     struct {
-        enum IggyAudioOutParamFormat data_format : 8;  // Bits 0-7
-        unsigned reserve0                        : 8;  // Bits 8-15
-        enum IggyAudioOutParamAttr attributes    : 4;  // Bits 16-19
-        unsigned reserve1                        : 10; // Bits 20-29
-        unsigned unused                          : 1;  // Bit 31 (Bit 30 is implicitly padding here)
-    };
-    unsigned raw; // "unpacks" the entire 32-bit value
+        unsigned data_format : 8;   // bits  0.. 7
+        unsigned reserve0    : 8;   // bits  8..15
+        unsigned attributes  : 4;   // bits 16..19
+        unsigned reserve1    : 10;  // bits 20..29
+        unsigned             : 1;   // bit  30 (padding)
+        unsigned unused      : 1;   // bit  31
+    } bits;
 } IggyAudioOutParamExtendedInformation;
 
 
