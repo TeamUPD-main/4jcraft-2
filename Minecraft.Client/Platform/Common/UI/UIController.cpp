@@ -174,7 +174,7 @@ UIController::UIController()
 #endif
 
 	// 4J Stu - This is a bit of a hack until we change the Minecraft initialisation to store the proper screen size for other platforms
-#if defined _WINDOWS64 || defined _DURANGO || defined __ORBIS__
+#if defined _WINDOWS64 || defined _DURANGO || defined __ORBIS__ || defined(__linux__)
 	m_fScreenWidth = 1920.0f;
 	m_fScreenHeight = 1080.0f;
 	m_bScreenWidthSetup = true;
@@ -566,7 +566,7 @@ void UIController::ReloadSkin()
 		m_iggyLibraries[i] = IGGY_INVALID_LIBRARY;
 	}
 
-#ifdef _WINDOWS64
+#ifdef _WINDOWS64 || defined(__linux__))
 	// 4J Stu - Don't load on a thread on windows. I haven't investigated this in detail, so a quick fix
 	reloadSkinThreadProc(this);
 #else
